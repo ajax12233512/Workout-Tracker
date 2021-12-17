@@ -3,9 +3,12 @@ const mongoose = require('mongoose')
 const app = express();
 const path = require('path');
 
+const api = require('./routes/api.js')
+
 const PORT = process.env.PORT || 3001;
 
 app.use(express.static('public'))
+app.use(api);
 
 //Database connections
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/aqueous-beyond-96443", {

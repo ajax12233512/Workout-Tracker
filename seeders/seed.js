@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const db = require('../models');
+const db = require('../models/Workout');
 
-mongoose.connect('mongodb://localhost/workout', {
+mongoose.connect('mongodb://localhost/aqueous-beyond-96443', {
   useNewUrlParser: true,
   useFindAndModify: false,
   useUnifiedTopology: true,
@@ -124,9 +124,9 @@ const workoutSeed = [
     ],
   },
 ];
-
-db.Workout.deleteMany({})
-  .then(() => db.Workout.collection.insertMany(workoutSeed))
+//deleted `db.Workout.whatever`'s and changed them to db.whatever
+db.deleteMany({})
+  .then(() => db.collection.insertMany(workoutSeed))
   .then((data) => {
     console.log(data.result.n + ' records inserted!');
     process.exit(0);
