@@ -32,4 +32,34 @@ router.get('/api/workouts/range', (req, res) =>{
         })
 }); 
 
+router.post('/api/workouts', async(req, res)=>{
+    console.log(req.body)
+        const newWorkout = await Workout.create(
+            {
+                day: Date.now(),
+                excercises: [
+                    // {
+                    //     type: req.body.type,
+                    //     name: req.body.name,
+                    //     distance: req.body.distance,
+                    //     durations: req.body.duration,
+                    //     length: 1
+                    // }
+                ],
+
+            }
+        )
+        console.log(newWorkout);
+    res.json(newWorkout)
+})
+
+router.put('/api/workouts/:id', async (req, res) => {
+//    console.log(req.body)
+    const newExcercise = await Workout.findByIdAndUpdate(req.params.id, {
+        exercises: req.body
+    });
+
+    res.json(newExcercise)
+})
+
 module.exports = router;
