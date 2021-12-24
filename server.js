@@ -33,4 +33,4 @@ app.get('/stats', (req, res) =>{
     res.sendFile(path.join(__dirname, '/public/stats.html'))
 })
 
-app.listen(PORT, () =>{console.log('Server listening on http://localhost:3001')})
+app.listen(process.env.PORT || PORT, () =>{console.log('Server listening on http://localhost:3001')})
