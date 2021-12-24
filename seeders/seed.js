@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const db = require('../models/Workout');
 
-mongoose.connect('mongodb://localhost/aqueous-beyond-96443', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/aqueous-beyond-96443', {
   useNewUrlParser: true,
   useFindAndModify: false,
   useUnifiedTopology: true,
